@@ -84,7 +84,7 @@ void AndroidRuntime::start(const char* className, const Vector<String8>& options
 ```
 start函数做了一下4件事:
 
-1. 创建JniInvocation实例，调用init初始化，
+### 创建JniInvocation实例，调用init初始化，
     1.  Init中调用GetLibrary函数中读取系统属性persist.sys.dalvik.vm.lib.2，这个值要么等于libdvm.so，要么等于libart.so。当等于libdvm.so时，就表示当前用的是Dalvik虚拟机，而当等于libart.so时，就表示当前用的是ART虚拟机。无论哪个so，都会FindSymbol出JNI_GetDefaultJavaVMInitArgs、JNI_CreateJavaVM和JNI_GetCreatedJavaVMs这3个接口，保存在JniInvocation类的三个成员变量JNI_GetDefaultJavaVMInitArgs_、JNI_CreateJavaVM_和JNI_GetCreatedJavaVMs_中 源代码路径 `libnativehelper/JniInvocation.cpp`
         
         ```
@@ -110,7 +110,7 @@ start函数做了一下4件事:
         }
         ```
         
-2. startVm虚拟机
+###  startVm虚拟机
     1. 启动虚拟机，指定一系列参数，然后调用另外一个函数JNI_CreateJavaVM来创建和初始化虚拟机，创建Runtime对象，文件路径 /art/runtime/java_vm_ext.cc
         
     ```
@@ -125,7 +125,7 @@ start函数做了一下4件事:
     ```
     
         
-3. startReg // 注册Android方法
+###  startReg // 注册Android方法
     
     ```
     /*
@@ -168,7 +168,7 @@ start函数做了一下4件事:
     }
     ```
     
-4. 调用ZygoteInit的main函数，进入java代码:
+###  调用ZygoteInit的main函数，进入java代码:
     
     ```
         public static void main(String argv[]) {
