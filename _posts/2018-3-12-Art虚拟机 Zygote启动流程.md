@@ -12,6 +12,7 @@ tags:
     - Zygote
 ---
 
+
 # Art虚拟机 Zygote启动流程（基于8.1.0源码分析）
 ## 1. 在Android虚拟机中，所有的应用进程和系统服务进程都是Zygote进程fork出来的，
 zygote所对应的可执行程序app_process，所对应的源文件是app_main.cpp，进程名为zygote，源代码位于 `frameworks/base/cmds/app_process/app_main.cpp`
