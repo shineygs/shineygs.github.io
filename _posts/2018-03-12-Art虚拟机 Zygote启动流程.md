@@ -2,7 +2,7 @@
 layout:     post
 title:      Art虚拟机
 subtitle:   Art虚拟机 Zygote启动流程
-date:       2018-03-012
+date:       2018-03-12
 author:     YGS
 header-img: img/post-bg-def.jpg
 catalog: true
