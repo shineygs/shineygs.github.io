@@ -19,9 +19,8 @@ zygote所对应的可执行程序app_process，所对应的源文件是app_main.
 创建一个AppRuntime变量，然后调用start函数，AppRuntime为ActivityRuntime子类也是在本文件中定义。
 
 ```
-
+// Android系统是基于Linux内核的，而在Linux系统中，所有的进程都是init进程的子孙进程，也就是说，所有的进程都是直接或者间接地由init进程fork出来的。Zygote进程也不例外，它是在系统启动的过程，由init进程创建的。
 // 在init.zygote32.rc中 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
-
 /system/bin/app_process     Zygote进程程序所在位置
  --zygote                   使用ZygoteInit类的main函数，Zygote进程的Java层入口
 --start-system-server       需要Zygote进程启动SystemServer进程
